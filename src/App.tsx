@@ -14,17 +14,16 @@ const StyledApp = styled.div`
   flex-direction: column;
   align-items: center;
   min-height: 100vh;
-  background-color: ${({ theme }) => theme.color.cyan200};
-  color: ${({ theme }) => theme.color.primary};
+  background-color: ${({ theme }) => theme.color.background.primary};
+  color: ${({ theme }) => theme.color.text.primary};
   font-family: ${({ theme }) => theme.fontFamily.primary};
-  font-size: ${({ theme }) => theme.fontSize.md};
-  font-weight: ${({ theme }) => theme.fontWeight.bold};
+  font-weight: ${({ theme }) => theme.fontWeight.normal};
 `;
 
 function App() {
   return (
     <>
-      <ThemeProvider theme={Themes.frontendMentor}>
+      <ThemeProvider theme={Themes.dark}>
         <GlobalStyle />
         <StyledApp>
           <div>Social Media Dashboard</div>

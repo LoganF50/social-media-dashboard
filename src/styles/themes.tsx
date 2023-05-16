@@ -28,12 +28,15 @@ const defaultTheme = {
     laptopLg: "1440px",
     desktop: "2560px",
   },
+  color: {},
   duration: {
     short: "250ms",
     medium: "375ms",
     long: "500ms",
   },
-  fontFamily: {},
+  fontFamily: {
+    primary: "Inter, sans-serif",
+  },
   fontSize: {
     base100: "0.75rem",
     base200: "0.875rem",
@@ -47,15 +50,8 @@ const defaultTheme = {
     base1000: "6rem",
   },
   fontWeight: {
-    thin: "100",
-    extraLight: "200",
-    light: "300",
-    normal: "400",
-    medium: "500",
-    semiBold: "600",
-    bold: "700",
-    extraBold: "800",
-    black: "900",
+    normal: 400,
+    bold: 700,
   },
   spacing: {
     base100: "0.125rem",
@@ -73,38 +69,69 @@ const defaultTheme = {
 
 const darkTheme = {
   name: "dark",
-  color: {},
+  color: {
+    ...defaultTheme.color,
+    green: "hsl(163, 72%, 41%)",
+    red: "hsl(356, 69%, 56%)",
+    facebook: "hsl(208, 92%, 53%)",
+    twitter: "hsl(203, 89%, 53%)",
+    instagram: {
+      yellow: "hsl(37, 97%, 70%)",
+      pink: "hsl(329, 70%, 58%)",
+    },
+    youtube: "hsl(348, 97%, 39%)",
+    background: {
+      primary: "hsl(230, 17%, 14%)",
+      secondary: "hsl(232, 19%, 15%)",
+    },
+    card: {
+      background: "hsl(228, 28%, 20%)",
+    },
+    text: {
+      primary: "hsl(0, 0%, 100%)",
+      secondary: "hsl(228, 34%, 66%)",
+    },
+    toggle: {
+      background: {
+        blue: "hsl(210, 78%, 56%)",
+        gray: "hsl(230, 22%, 74%)",
+        green: "hsl(146, 68%, 55%)",
+      },
+    },
+  },
 };
 
 const lightTheme = {
   name: "light",
-  color: {},
-};
-
-const frontendMentorTheme = {
-  name: "frontendMentor",
   color: {
-    error: "#c6847b",
-    buttonActive: "#9fe8df",
-    primary: "hsl(172, 67%, 45%)",
-    cyan500: "hsl(183, 100%, 15%)",
-    cyan400: "hsl(186, 14%, 43%)",
-    cyan300: "hsl(184, 14%, 56%)",
-    cyan200: "hsl(185, 41%, 84%)",
-    cyan100: "hsl(189, 41%, 97%)",
-    white: "hsl(0, 0%, 100%)",
-  },
-  fontFamily: {
-    primary: "Inter, sans-serif",
-  },
-  fontSize: {
-    ...defaultTheme.fontSize,
-    input: defaultTheme.fontSize.base600,
-  },
-  borderRadius: {
-    ...defaultTheme.borderRadius,
-    input: defaultTheme.borderRadius.base100,
-    container: defaultTheme.borderRadius.base500,
+    ...defaultTheme.color,
+    green: "hsl(163, 72%, 41%)",
+    red: "hsl(356, 69%, 56%)",
+    facebook: "hsl(208, 92%, 53%)",
+    twitter: "hsl(203, 89%, 53%)",
+    instagram: {
+      yellow: "hsl(37, 97%, 70%)",
+      pink: "hsl(329, 70%, 58%)",
+    },
+    youtube: "hsl(348, 97%, 39%)",
+    background: {
+      primary: "hsl(0, 0%, 100%)",
+      secondary: "hsl(225, 100%, 98%)",
+    },
+    card: {
+      background: "hsl(227, 47%, 96%)",
+    },
+    text: {
+      primary: "hsl(230, 17%, 14%)",
+      secondary: "hsl(228, 12%, 44%)",
+    },
+    toggle: {
+      background: {
+        blue: "hsl(210, 78%, 56%)",
+        gray: "hsl(230, 22%, 74%)",
+        green: "hsl(146, 68%, 55%)",
+      },
+    },
   },
 };
 
@@ -112,17 +139,11 @@ export const Themes = {
   dark: {
     ...defaultTheme,
     name: darkTheme.name,
+    color: darkTheme.color,
   },
   light: {
     ...defaultTheme,
     name: lightTheme.name,
-  },
-  frontendMentor: {
-    ...defaultTheme,
-    name: frontendMentorTheme.name,
-    borderRadius: frontendMentorTheme.borderRadius,
-    fontFamily: frontendMentorTheme.fontFamily,
-    fontSize: frontendMentorTheme.fontSize,
-    color: frontendMentorTheme.color,
+    color: lightTheme.color,
   },
 };
