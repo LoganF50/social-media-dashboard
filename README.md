@@ -35,7 +35,7 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
+- Solution URL: [FrontendMentor Solution URL](https://www.frontendmentor.io/solutions/responsive-social-media-dashboard-CTQqN4mjzj)
 - Live Site URL: [Github Pages URL](https://loganf50.github.io/social-media-dashboard/)
 
 ## My process
