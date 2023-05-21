@@ -8,6 +8,11 @@ const StyledCard = styled.div`
   padding: ${({ theme }) => theme.spacing.base600};
   gap: ${({ theme }) => theme.spacing.base600};
 
+  &:hover {
+    cursor: pointer;
+    background-color: ${({ theme }) => theme.color.card.hover};
+  }
+
   @media screen and (min-width: ${({ theme }) => theme.breakpoint.mobileLg}) {
     flex: 1 1 40%;
   }

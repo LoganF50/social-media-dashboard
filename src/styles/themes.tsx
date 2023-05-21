@@ -86,6 +86,7 @@ const darkTheme = {
     },
     card: {
       background: "hsl(228, 28%, 20%)",
+      hover: "hsl(228, 28%, 40%)",
     },
     text: {
       primary: "hsl(0, 0%, 100%)",
@@ -120,6 +121,7 @@ const lightTheme = {
     },
     card: {
       background: "hsl(227, 47%, 96%)",
+      hover: "hsl(227, 47%, 90%)",
     },
     text: {
       primary: "hsl(230, 17%, 14%)",

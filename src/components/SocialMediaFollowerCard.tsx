@@ -5,6 +5,11 @@ const StyledCard = styled.div<CardStyleProps>`
   border-radius: ${({ theme }) => theme.borderRadius.base200};
   overflow: hidden;
 
+  &:hover {
+    cursor: pointer;
+    background-color: ${({ theme }) => theme.color.card.hover};
+  }
+
   @media screen and (min-width: ${({ theme }) => theme.breakpoint.mobileLg}) {
     flex: 1 1 40%;
   }
