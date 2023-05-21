@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Switch } from "./Switch";
 
 const StyledHeader = styled.header`
   display: flex;
@@ -31,6 +32,7 @@ const FlexRowSpaced = styled.div`
 `;
 
 type HeaderProps = {
+  isOn: boolean;
   toggleTheme: () => void;
   followerCount: string;
 };
@@ -38,6 +40,7 @@ type HeaderProps = {
 export const Header: React.FC<HeaderProps> = ({
   toggleTheme,
   followerCount,
+  isOn,
 }: HeaderProps) => {
   return (
     <StyledHeader>
@@ -48,7 +51,11 @@ export const Header: React.FC<HeaderProps> = ({
       <hr />
       <FlexRowSpaced>
         <p>Dark Mode</p>
-        <button onClick={toggleTheme}>SLIDER</button>
+        <Switch
+          isOn={isOn}
+          handleToggle={toggleTheme}
+          label={"theme-toggler"}
+        />
       </FlexRowSpaced>
     </StyledHeader>
   );

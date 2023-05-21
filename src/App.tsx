@@ -44,6 +44,7 @@ const OverviewSection = styled.div`
 `;
 
 type FollowerCardData = {
+  id: string;
   colors: string[];
   followerCount: string;
   followerName: string;
@@ -54,6 +55,7 @@ type FollowerCardData = {
 };
 
 type OverviewCardData = {
+  id: string;
   description: string;
   amount: string;
   change: number;
@@ -66,6 +68,7 @@ function App() {
 
   const followerData: FollowerCardData[] = [
     {
+      id: "0",
       colors: [currentTheme.color.facebook],
       followerCount: "1987",
       followerName: "followers",
@@ -75,6 +78,7 @@ function App() {
       userHandle: "@nathanf",
     },
     {
+      id: "1",
       colors: [currentTheme.color.twitter],
       followerCount: "1044",
       followerName: "followers",
@@ -84,6 +88,7 @@ function App() {
       userHandle: "@nathanf",
     },
     {
+      id: "2",
       colors: [
         currentTheme.color.instagram.yellow,
         currentTheme.color.instagram.pink,
@@ -96,6 +101,7 @@ function App() {
       userHandle: "@realnathanf",
     },
     {
+      id: "3",
       colors: [currentTheme.color.youtube],
       followerCount: "8239",
       followerName: "subscribers",
@@ -107,6 +113,7 @@ function App() {
   ];
   const overviewData: OverviewCardData[] = [
     {
+      id: "0",
       description: "page views",
       amount: "87",
       imgAlt: "facebook",
@@ -114,6 +121,7 @@ function App() {
       change: 3,
     },
     {
+      id: "1",
       description: "likes",
       amount: "52",
       imgAlt: "facebook",
@@ -121,6 +129,7 @@ function App() {
       change: -2,
     },
     {
+      id: "2",
       description: "likes",
       amount: "5462",
       imgAlt: "instagram",
@@ -128,6 +137,7 @@ function App() {
       change: 2257,
     },
     {
+      id: "3",
       description: "profile views",
       amount: "52k",
       imgAlt: "instagram",
@@ -135,6 +145,7 @@ function App() {
       change: 1375,
     },
     {
+      id: "4",
       description: "retweets",
       amount: "117",
       imgAlt: "twitter",
@@ -142,6 +153,7 @@ function App() {
       change: 303,
     },
     {
+      id: "5",
       description: "likes",
       amount: "507",
       imgAlt: "twitter",
@@ -149,6 +161,7 @@ function App() {
       change: 3,
     },
     {
+      id: "6",
       description: "likes",
       amount: "107",
       imgAlt: "youtube",
@@ -156,6 +169,7 @@ function App() {
       change: -19,
     },
     {
+      id: "7",
       description: "total views",
       amount: "1407",
       imgAlt: "youtube",
@@ -175,11 +189,16 @@ function App() {
       <ThemeProvider theme={currentTheme}>
         <GlobalStyle />
         <StyledApp>
-          <Header followerCount={"23,004"} toggleTheme={toggleTheme} />
+          <Header
+            followerCount={"23,004"}
+            toggleTheme={toggleTheme}
+            isOn={currentTheme.name === "dark"}
+          />
           <FollowerSection>
             {followerData.map((card) => {
               return (
                 <SocialMediaFollowerCard
+                  key={card.id}
                   colors={card.colors}
                   followerCount={card.followerCount}
                   followerName={card.followerName}
@@ -197,6 +216,7 @@ function App() {
               {overviewData.map((card) => {
                 return (
                   <SocialMediaOverviewCard
+                    key={card.id}
                     imgAlt={card.imgAlt}
                     imgSrc={card.imgSrc}
                     change={card.change}
