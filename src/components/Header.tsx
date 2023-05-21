@@ -32,7 +32,7 @@ const FlexRowSpaced = styled.div`
 `;
 
 type HeaderProps = {
-  isOn: boolean;
+  isLightTheme: boolean;
   toggleTheme: () => void;
   followerCount: string;
 };
@@ -40,7 +40,7 @@ type HeaderProps = {
 export const Header: React.FC<HeaderProps> = ({
   toggleTheme,
   followerCount,
-  isOn,
+  isLightTheme,
 }: HeaderProps) => {
   return (
     <StyledHeader>
@@ -52,7 +52,7 @@ export const Header: React.FC<HeaderProps> = ({
       <FlexRowSpaced>
         <p>Dark Mode</p>
         <Switch
-          isOn={isOn}
+          isToggledRight={isLightTheme}
           handleToggle={toggleTheme}
           label={"theme-toggler"}
         />

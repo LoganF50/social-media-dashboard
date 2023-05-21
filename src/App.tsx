@@ -192,7 +192,7 @@ function App() {
           <Header
             followerCount={"23,004"}
             toggleTheme={toggleTheme}
-            isOn={currentTheme.name === "dark"}
+            isLightTheme={currentTheme.name === "light"}
           />
           <FollowerSection>
             {followerData.map((card) => {
