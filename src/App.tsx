@@ -6,36 +6,64 @@ import { Header } from "./components/Header";
 import { SocialMediaFollowerCard } from "./components/SocialMediaFollowerCard";
 import { SocialMediaOverviewCard } from "./components/SocialMediaOverviewCard";
 
-const StyledApp = styled.div`
-  #root {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-  }
-
+const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   min-height: 100vh;
   background: ${({ theme }) =>
     `linear-gradient(180deg, ${theme.color.background.secondary} 9%, ${theme.color.background.primary} 9%)`};
+
+  @media screen and (min-width: ${({ theme }) => theme.breakpoint.tablet}) {
+    align-items: center;
+    background: ${({ theme }) =>
+      `linear-gradient(180deg, ${theme.color.background.secondary} 30%, ${theme.color.background.primary} 30%)`};
+  }
+`;
+
+const StyledApp = styled.div`
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
   color: ${({ theme }) => theme.color.text.primary};
   font-family: ${({ theme }) => theme.fontFamily.primary};
   font-weight: ${({ theme }) => theme.fontWeight.normal};
   gap: ${({ theme }) => theme.spacing.base700};
   padding: ${({ theme }) => theme.spacing.base700};
+
+  @media screen and (min-width: ${({ theme }) => theme.breakpoint.tablet}) {
+    gap: ${({ theme }) => theme.spacing.base1000};
+    max-width: 1200px;
+  }
 `;
 
 const FollowerSection = styled.div`
   display: flex;
   flex-direction: column;
   gap: ${({ theme }) => theme.spacing.base600};
+
+  @media screen and (min-width: ${({ theme }) => theme.breakpoint.mobileLg}) {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  @media screen and (min-width: ${({ theme }) => theme.breakpoint.tablet}) {
+    gap: ${({ theme }) => theme.spacing.base800};
+  }
 `;
 
 const OverviewCardsSection = styled.div`
   display: flex;
   flex-direction: column;
   gap: ${({ theme }) => theme.spacing.base600};
+
+  @media screen and (min-width: ${({ theme }) => theme.breakpoint.mobileLg}) {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  @media screen and (min-width: ${({ theme }) => theme.breakpoint.tablet}) {
+    gap: ${({ theme }) => theme.spacing.base800};
+  }
 `;
 
 const OverviewSection = styled.div`
@@ -159,7 +187,7 @@ function App() {
       amount: "507",
       imgAlt: "twitter",
       imgSrc: "images/icon-twitter.svg",
-      change: 3,
+      change: 553,
     },
     {
       id: "6",
@@ -189,46 +217,48 @@ function App() {
     <>
       <ThemeProvider theme={currentTheme}>
         <GlobalStyle />
-        <StyledApp>
-          <Header
-            followerCount={"23,004"}
-            toggleTheme={toggleTheme}
-            isLightTheme={currentTheme.name === "light"}
-          />
-          <FollowerSection>
-            {followerData.map((card) => {
-              return (
-                <SocialMediaFollowerCard
-                  key={card.id}
-                  colors={card.colors}
-                  followerCount={card.followerCount}
-                  followerName={card.followerName}
-                  followerChange={card.followerChange}
-                  imgAlt={card.imgAlt}
-                  imgSrc={card.imgSrc}
-                  userHandle={card.userHandle}
-                />
-              );
-            })}
-          </FollowerSection>
-          <OverviewSection>
-            <h2>Overview - Today</h2>
-            <OverviewCardsSection>
-              {overviewData.map((card) => {
+        <Wrapper>
+          <StyledApp>
+            <Header
+              followerCount={"23,004"}
+              toggleTheme={toggleTheme}
+              isLightTheme={currentTheme.name === "light"}
+            />
+            <FollowerSection>
+              {followerData.map((card) => {
                 return (
-                  <SocialMediaOverviewCard
+                  <SocialMediaFollowerCard
                     key={card.id}
+                    colors={card.colors}
+                    followerCount={card.followerCount}
+                    followerName={card.followerName}
+                    followerChange={card.followerChange}
                     imgAlt={card.imgAlt}
                     imgSrc={card.imgSrc}
-                    change={card.change}
-                    description={card.description}
-                    amount={card.amount}
+                    userHandle={card.userHandle}
                   />
                 );
               })}
-            </OverviewCardsSection>
-          </OverviewSection>
-        </StyledApp>
+            </FollowerSection>
+            <OverviewSection>
+              <h2>Overview - Today</h2>
+              <OverviewCardsSection>
+                {overviewData.map((card) => {
+                  return (
+                    <SocialMediaOverviewCard
+                      key={card.id}
+                      imgAlt={card.imgAlt}
+                      imgSrc={card.imgSrc}
+                      change={card.change}
+                      description={card.description}
+                      amount={card.amount}
+                    />
+                  );
+                })}
+              </OverviewCardsSection>
+            </OverviewSection>
+          </StyledApp>
+        </Wrapper>
       </ThemeProvider>
     </>
   );

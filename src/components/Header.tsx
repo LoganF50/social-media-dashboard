@@ -24,11 +24,21 @@ const StyledHeader = styled.header`
     height: 1px;
     border: none;
   }
+
+  @media screen and (min-width: ${({ theme }) => theme.breakpoint.tablet}) {
+    flex-direction: row;
+    justify-content: space-between;
+
+    h1 {
+      font-size: ${({ theme }) => theme.fontSize.base700};
+    }
+  }
 `;
 
 const FlexRowSpaced = styled.div`
   display: flex;
   justify-content: space-between;
+  align-items: center;
 `;
 
 type HeaderProps = {

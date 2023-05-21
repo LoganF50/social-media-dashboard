@@ -7,6 +7,14 @@ const StyledCard = styled.div`
   border-radius: ${({ theme }) => theme.borderRadius.base200};
   padding: ${({ theme }) => theme.spacing.base600};
   gap: ${({ theme }) => theme.spacing.base600};
+
+  @media screen and (min-width: ${({ theme }) => theme.breakpoint.mobileLg}) {
+    flex: 1 1 40%;
+  }
+
+  @media screen and (min-width: ${({ theme }) => theme.breakpoint.tablet}) {
+    flex: 1 1 20%;
+  }
 `;
 
 const FlexRowCenter = styled.div`

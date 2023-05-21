@@ -4,6 +4,14 @@ const StyledCard = styled.div<CardStyleProps>`
   background-color: ${({ theme }) => theme.color.card.background};
   border-radius: ${({ theme }) => theme.borderRadius.base200};
   overflow: hidden;
+
+  @media screen and (min-width: ${({ theme }) => theme.breakpoint.mobileLg}) {
+    flex: 1 1 40%;
+  }
+
+  @media screen and (min-width: ${({ theme }) => theme.breakpoint.tablet}) {
+    flex: 1 1 20%;
+  }
 `;
 
 const CardAccent = styled.div<CardStyleProps>`
