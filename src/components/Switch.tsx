@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 const Button = styled.span`
-  content: "";
   position: absolute;
   top: 0.2rem;
   left: 0.2rem;

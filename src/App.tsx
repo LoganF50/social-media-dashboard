@@ -17,7 +17,8 @@ const StyledApp = styled.div`
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background-color: ${({ theme }) => theme.color.background.primary};
+  background: ${({ theme }) =>
+    `linear-gradient(180deg, ${theme.color.background.secondary} 9%, ${theme.color.background.primary} 9%)`};
   color: ${({ theme }) => theme.color.text.primary};
   font-family: ${({ theme }) => theme.fontFamily.primary};
   font-weight: ${({ theme }) => theme.fontWeight.normal};
