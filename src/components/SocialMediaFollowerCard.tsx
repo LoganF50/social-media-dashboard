@@ -35,6 +35,7 @@ const FollowerChange = styled.p<CardStyleProps>`
   &::before {
     display: flex;
     align-items: center;
+    padding-right: ${({ theme }) => theme.spacing.base200};
     content: ${({ followerChange }) =>
       followerChange > 0
         ? "url(images/icon-up.svg)"
